@@ -1,0 +1,515 @@
+/*
+ * RoSeal Extension
+ *
+ * Copyright (C) 2022-2025 roseal.live
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Repository: https://github.com/RoSeal-Extension/RoSeal
+*/
+/*
+ * RoSeal Extension
+ *
+ * Copyright (C) 2022-2025 roseal.live
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Repository: https://github.com/RoSeal-Extension/RoSeal
+*/
+.roseal-admin-badge {
+  zoom: 0.2;
+}
+
+.roseal-admin-badge .asset-thumb-container {
+  background-color: transparent !important;
+}
+
+.roseal-admin-badge .item-name {
+  display: none;
+}
+
+.user-is-blocked:not(.user-blocked-bypass) > div:not(.user-blocked-screen) > div:not(:has(#profile-header-container)) {
+  display: none !important;
+}
+
+.user-is-blocked .details-actions,
+.user-is-blocked .profile-header-buttons button:not(:has([data-testid=MoreHorizIcon])) {
+  display: none !important;
+}
+
+.user-is-blocked .foundation-web-icon-button[aria-label="Open Popover"] {
+  display: none;
+}
+
+.viewer-is-blocked.profile-header-main .viewer-blocked-text {
+  align-self: end;
+}
+
+.viewer-is-blocked .details-actions,
+.viewer-is-blocked .profile-header-buttons {
+  display: none !important;
+}
+
+.user-blocked-screen {
+  padding-bottom: 500px;
+}
+
+.roseal-filtered-preview {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.foundation-web-dialog-content .roseal-filtered-preview {
+  margin: 0;
+  flex: 1;
+}
+
+.roseal-filtered-preview .text-preview {
+  white-space: pre-wrap;
+  max-height: 200px;
+  height: auto;
+}
+
+.roseal-filtered-preview .insert {
+  color: #02b757;
+}
+
+.roseal-filtered-preview .delete {
+  color: #e2231a;
+  text-decoration: line-through;
+}
+
+[data-rosealfe-cssfixes] .favorite-games-container .game-cards .game-card {
+  width: 159px;
+}
+
+[data-rosealfe-cssfixes] #treatment-redesigned-header .user-profile-header > .flex-nowrap:not(.user-profile-header-info) button[disabled] {
+  opacity: 0.5;
+}
+
+[data-rosealfe-cssfixes] .profile-header-main .profile-avatar-image {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  [data-rosealfe-cssfixes] .touch .profile-accoutrements-page-container {
+    display: revert !important;
+  }
+}
+[data-rosealfe-cssfixes] .light-theme .profile-accoutrements-container .profile-accoutrements-page {
+  background-color: var(--RS_SECONDARY-BACKGROUND-COLOR) !important;
+  border: 1px solid var(--RS_BACKGROUND-4-COLOR) !important;
+}
+
+[data-rosealfe-cssfixes] .light-theme .profile-accoutrements-container .profile-accoutrements-page.page-active {
+  background-color: var(--RS_PRIMARY-BACKGROUND-COLOR) !important;
+  border: 1px solid var(--RS_BACKGROUND-4-COLOR) !important;
+}
+
+[data-rosealfe-userprofileaddpadding] .profile-collections,
+[data-rosealfe-userprofileaddpadding] #people-list-container,
+[data-rosealfe-userprofileaddpadding] div[groups-showcase],
+[data-rosealfe-userprofileaddpadding] .favorite-games-container,
+[data-rosealfe-userprofileaddpadding] #roblox-badges-container,
+[data-rosealfe-userprofileaddpadding] #roseal-roblox-badges-container,
+[data-rosealfe-userprofileaddpadding] #player-badges-container {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.header-misc {
+  display: flex;
+  justify-content: space-between;
+  height: 28px;
+}
+
+.header-misc .search-user-marketplace-items-btn {
+  display: flex;
+  align-items: center;
+  /*
+  .profile-header-main & {
+      font-weight: 300;
+  }*/
+}
+
+@media (min-width: 768px) {
+  [data-rosealfe-linkusermarketplaceshop] #profile-header-container .header-caption {
+    height: unset;
+    min-height: 128px;
+    max-height: 150px;
+  }
+}
+[data-rosealfe-imageresolutionoverride] groups-showcase-grid .thumbnail-2d-container {
+  width: inherit;
+  height: inherit;
+}
+
+.past-usernames-modal .modal-body {
+  max-height: 75vh;
+  overflow: scroll;
+}
+
+[data-rosealfe-showcommunityjoineddate] #groups-switcher .slide-item-stats .list-item {
+  width: 33.3333333333% !important;
+}
+
+.profile-avatar-mask:has(.roseal-emotes-container:not(.hide)) .profile-accoutrements-container:not(.roseal-emotes-container) {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .profile-avatar-mask .roseal-accoutrements-pill {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 768px) {
+  .profile-avatar-mask .roseal-accoutrements-pill {
+    position: absolute;
+    top: 2px;
+  }
+}
+[data-rosealfe-improveduserfriendspage-mutualstab] .profile-header-social-counts li:has([href*="#mutuals"]) {
+  display: none;
+}
+
+.roseal-profile-header-social-count {
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+.roseal-profile-header-social-count.clickable-link:hover {
+  text-decoration: underline;
+}
+
+[data-rosealfe-viewuserprofileportrait] .profile-avatar-left .enable-three-dee {
+  right: 105px;
+}
+
+.profile-avatar-left:has(.user-portrait-view.show-portrait) .enable-three-dee,
+.profile-avatar-left:has(.user-portrait-view.show-portrait) .thumbnail-2d-container:not(.portrait-thumbnail-container),
+.profile-avatar-left:has(.user-portrait-view.show-portrait) .thumbnail-3d-container {
+  display: none;
+}
+
+.user-portrait-view:not(.show-portrait) .portrait-thumbnail-container {
+  display: none;
+}
+
+.btn-taco {
+  margin-bottom: 5px;
+}
+
+.user-profile-pop-up-text {
+  display: inline-block;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 5px;
+  background: var(--RS_BACKGROUND-2-COLOR);
+  width: 100%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transform: translateY(50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out !important;
+  z-index: 99999;
+}
+
+.asset-thumb-container:hover .user-profile-pop-up-text {
+  opacity: 1 !important;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#roseal-roblox-badges-container .asset-thumb-container,
+#roseal-player-badges-container .asset-thumb-container {
+  position: relative;
+}
+
+#roseal-roblox-badges-container .roblox-badge-unique-id,
+#roseal-player-badges-container .roblox-badge-unique-id {
+  float: right;
+}
+
+#roseal-roblox-badges-container .item-name-container,
+#roseal-player-badges-container .item-name-container {
+  display: flex;
+  width: 140px;
+  margin: auto;
+}
+
+.btr-profile #roseal-roblox-badges-container .item-name-container,
+.btr-profile #roseal-player-badges-container .item-name-container {
+  width: 100%;
+  flex-direction: column;
+}
+
+.btr-profile #roseal-roblox-badges-container .item-name-container .roblox-badge-unique-id,
+.btr-profile #roseal-player-badges-container .item-name-container .roblox-badge-unique-id {
+  align-self: last baseline;
+}
+
+#roseal-roblox-badges-container .badge-list {
+  overflow: auto;
+  max-height: unset;
+}
+
+#roseal-roblox-badges-container .badge-list::before {
+  display: none;
+}
+
+.btr-profile #roseal-roblox-badges-container .section-content {
+  padding: 15px;
+  background-color: var(--RS_BACKGROUND-2-COLOR);
+}
+
+.btr-profile #roseal-roblox-badges-container .badge-list {
+  max-height: 256px;
+}
+
+.btr-profile #roseal-roblox-badges-container .badge-list.badge-list-more {
+  max-height: none;
+  overflow-x: hidden;
+}
+
+.btr-profile #roseal-roblox-badges-container .badge-list > .list-item {
+  width: 20%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.btr-profile #roseal-roblox-badges-container .badge-list > .list-item .asset-thumb-container {
+  margin-left: 5px;
+  transform: scale(0.6428571429);
+  transform-origin: 0 0;
+  margin-bottom: -50px;
+}
+
+.btr-profile #roseal-roblox-badges-container .badge-list > .list-item .item-name {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+#roseal-player-badges-container .asset-thumb-container {
+  width: 140px;
+  height: 140px;
+  padding-top: 0;
+}
+
+@media (max-width: 767px) {
+  #roseal-player-badges-container .asset-thumb-container {
+    width: 85px;
+    height: 85px;
+  }
+}
+.btr-profile-groups .group-joined-date,
+.btr-profile-groups .group-joined-date div {
+  font-size: 12px;
+}
+
+.user-locale-text {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+#treatment-redesigned-header .user-locale-text {
+  margin-top: 3px;
+}
+
+.user-locale-text .locale-icon-container .roseal-icon, .user-locale-text .locale-icon-container {
+  height: 24px;
+  width: 24px;
+  color: var(--RS_ICON-COLOR);
+}
+
+.has-background-color {
+  background: var(--profile-background-color);
+}
+
+.has-background-color .section-content:not(.remove-panel),
+.has-background-color .layer,
+.has-background-color .slide-switcher.groups,
+.has-background-color .slide-item-container-right,
+.has-background-color .profile-statistics .MuiPaper-root {
+  background: linear-gradient(rgba(from var(--profile-background-color) r g b/0.15), rgba(from var(--profile-background-color) r g b/0.15)), var(--RS_BACKGROUND-2-COLOR);
+}
+
+.has-background-color .slide-item-container-left,
+.has-background-color .profile-avatar-right {
+  background: linear-gradient(rgba(from var(--profile-background-color) r g b/0.15), rgba(from var(--profile-background-color) r g b/0.15)), var(--RS_BACKGROUND-3-COLOR) !important;
+}
+
+.has-background-color .content {
+  min-height: 100vh;
+  background: linear-gradient(rgba(from var(--profile-background-color) r g b/0.15), rgba(from var(--profile-background-color) r g b/0.15)), var(--RS_BACKGROUND-1-COLOR);
+}
+
+@media (min-width: 1000px) {
+  .has-background-color .content {
+    max-width: 1000px;
+    padding: 15px;
+  }
+}
+.customize-profile-container {
+  padding: 1em;
+  max-width: fit-content;
+}
+
+.customize-profile-container .color-options {
+  display: flex;
+  gap: 5px;
+}
+
+.customize-profile-container .color-options .color-option-container.is-selected .color-option {
+  outline: 2px lightblue solid;
+  outline-offset: 2px;
+}
+
+.customize-profile-container .color-options .color-option-container .color-option {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color);
+  border-radius: 50%;
+}
+
+.customize-profile-container .color-options .color-option-container .color-option .roseal-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--RS_ICON-COLOR);
+}
+
+@media (max-width: 991px) {
+  .slide-item-stats .group-joined-date {
+    font-size: 20px;
+  }
+}
+.roseal-user-collectibles-list-modal .modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+.roseal-user-collectibles-list-modal .item-cards {
+  max-height: 800px;
+  width: 680px;
+  overflow: auto;
+}
+
+.roseal-user-collectibles-list-modal .list-item {
+  max-width: fit-content;
+}
+
+.roseal-user-collectibles-list-modal .list-item .limited-icon-container {
+  bottom: 20px;
+  left: 2px;
+}
+
+.roseal-profile-stat .text-lead {
+  text-align: center;
+}
+
+.roseal-currently-wearing .accoutrement-image-container {
+  position: relative;
+}
+
+.roseal-currently-wearing .accoutrement-bundle-container {
+  border-bottom-left-radius: 0 !important;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 45px !important;
+  height: 45px !important;
+  background-color: var(--RS_BACKGROUND-3-COLOR) !important;
+  border-top-right-radius: 0 !important;
+}
+
+.roseal-total-value {
+  padding-left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 33px;
+  line-height: 33px;
+}
+
+.profile-published-avatars .collection-carousel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.profile-published-avatars .collection-carousel-container .carousel-container {
+  position: relative;
+}
+
+.profile-published-avatars .collection-carousel-container .carousel-container .carousel {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 15px;
+  width: 100%;
+  height: fit-content;
+  margin: 0;
+}
+
+.profile-published-avatars .collection-carousel-container .carousel-container .carousel .carousel-item {
+  height: fit-content;
+  flex-shrink: 0;
+  width: calc(16.6666666667% - 12px);
+}
+
+@media (max-width: 767px) {
+  .profile-published-avatars .collection-carousel-container .carousel-container .carousel .carousel-item {
+    width: calc(25% - 12px);
+  }
+}
+.profile-published-avatars .collection-carousel-container .carousel-container .carousel .carousel-item .value-cost-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.roseal-valra {
+  background-color: transparent !important;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.roseal-user-last-seen-v2 p,
+.roseal-user-last-seen-v2 span {
+  display: inline;
+  font-size: 14px !important;
+}
+
+.button-container .roseal-customize-profile-btn {
+  flex-shrink: 0;
+}

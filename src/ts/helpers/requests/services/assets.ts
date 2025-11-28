@@ -1,6 +1,10 @@
 import { getRobloxUrl } from "src/ts/utils/baseUrls.ts" with { type: "macro" };
 import { getOrSetCache, getOrSetCaches } from "../../cache.ts";
-import { httpClient } from "../main.ts";
+import {
+	httpClient,
+	ROBLOX_BROWSER_ASSET_REQUEST_HEADER_NAME,
+	ROBLOX_PLACE_ID_HEADER_NAME,
+} from "../main.ts";
 import type { AvatarItemSaleLocationTypeId } from "./marketplace.ts";
 import type { SortOrder } from "./badges.ts";
 
@@ -543,8 +547,11 @@ export function getLessAssetById({ assetId, overrideCache }: GetAssetByIdRequest
 			(
 				await httpClient.httpRequest<GeneralLessAssetDetails>({
 					url: `${getRobloxUrl("economy")}/v2/developer-products/${assetId}/info`,
+					credentials: {
+						type: "cookies",
+						value: true,
+					},
 					camelizeResponse: true,
-					includeCredentials: true,
 				})
 			).body,
 		overrideCache,
@@ -558,8 +565,11 @@ export function getAssetById({ assetId, overrideCache }: GetAssetByIdRequest) {
 			(
 				await httpClient.httpRequest<GeneralAssetDetails>({
 					url: `${getRobloxUrl("economy")}/v2/assets/${assetId}/details`,
+					credentials: {
+						type: "cookies",
+						value: true,
+					},
 					camelizeResponse: true,
-					includeCredentials: true,
 				})
 			).body,
 		overrideCache,
@@ -572,7 +582,10 @@ export function getCreatorAssetById({ assetId, overrideCache }: GetAssetByIdRequ
 			(
 				await httpClient.httpRequest<CreatorAssetDetails>({
 					url: `${getRobloxUrl("apis")}/assets/user-auth/v1/assets/${assetId}`,
-					includeCredentials: true,
+					credentials: {
+						type: "cookies",
+						value: true,
+					},
 				})
 			).body,
 		overrideCache,
@@ -595,7 +608,10 @@ export function multigetDevelopAssetsByIds({
 					search: {
 						assetIds: assets.map((asset) => asset.id),
 					},
-					includeCredentials: true,
+					credentials: {
+						type: "cookies",
+						value: true,
+					},
 				})
 				.then((data) => {
 					const items: Record<number, DevelopAsset> = {};
@@ -617,7 +633,10 @@ export function requestAssetContents({ assetId }: RequestAssetContentsRequest) {
 			(
 				await httpClient.httpRequest<RequestAssetContentsResponse>({
 					url: `${getRobloxUrl("assetdelivery")}/v2/assetId/${assetId}`,
-					includeCredentials: true,
+					credentials: {
+						type: "cookies",
+						value: true,
+					},
 					camelizeResponse: true,
 				})
 			).body,
@@ -636,7 +655,10 @@ export function requestAssetContentsByVersion({
 					url: `${getRobloxUrl(
 						"assetdelivery",
 					)}/v2/assetId/${assetId}/version/${versionNumber}`,
-					includeCredentials: true,
+					credentials: {
+						type: "cookies",
+						value: true,
+					},
 					camelizeResponse: true,
 				})
 			).body,
@@ -657,11 +679,14 @@ export async function batchGetAssetsContents({
 				value: requests,
 			},
 			headers: {
-				"roblox-place-id": robloxPlaceId,
-				"roblox-browser-asset-request": inBrowserRequest ? "true" : undefined,
+				[ROBLOX_PLACE_ID_HEADER_NAME]: robloxPlaceId,
+				[ROBLOX_BROWSER_ASSET_REQUEST_HEADER_NAME]: inBrowserRequest ? "true" : undefined,
+			},
+			credentials: {
+				type: "cookies",
+				value: true,
 			},
 			camelizeResponse: true,
-			includeCredentials: true,
 		})
 	).body;
 }
@@ -685,7 +710,10 @@ export async function uploadAsset({
 					},
 				},
 			},
-			includeCredentials: true,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
 		})
 	).body;
@@ -697,8 +725,11 @@ export async function getOperationDetails({
 	return (
 		await httpClient.httpRequest<UploadAssetResponse>({
 			url: `${getRobloxUrl("apis")}/assets/user-auth/v1/operations/${operationId}`,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 	).body;
 }
@@ -710,8 +741,11 @@ export async function multigetToolboxAssetsByIds({ assetIds }: MultigetToolboxAs
 			search: {
 				assetIds: assetIds,
 			},
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 	).body;
 }
@@ -720,8 +754,11 @@ export async function getToolboxAssetById({ assetId }: GetToolboxAssetByIdReques
 	return (
 		await httpClient.httpRequest<GetToolboxAssetByIdResponse>({
 			url: `${getRobloxUrl("apis")}/toolbox-service/v2/assets/${assetId}`,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 	).body;
 }
@@ -735,7 +772,10 @@ export async function multigetLatestAssetsVersions(request: MultigetLatestAssets
 				type: "json",
 				value: request,
 			},
-			includeCredentials: true,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 		})
 	).body;
 }
@@ -745,7 +785,10 @@ export async function listAssetOwners({ assetId, ...request }: ListAssetOwnersRe
 		await httpClient.httpRequest<ListAssetOwnersResponse>({
 			url: `${getRobloxUrl("inventory")}/v2/assets/${assetId}/owners`,
 			search: request,
-			includeCredentials: true,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 		})
 	).body;
 }

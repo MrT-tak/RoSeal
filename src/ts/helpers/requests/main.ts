@@ -1,12 +1,7 @@
 import { HBAClient } from "roblox-bat";
 import { ROSEAL_ACCOUNT_TOKEN_SEARCH_PARAM_NAME } from "src/ts/constants/accountsManager.ts";
 import { camelizeObject } from "src/ts/utils/objects.ts";
-import {
-	CLOUD_API_KEY_HEADER_NAME,
-	HTTPClient,
-	OAUTH_AUTHORIZATION_HEADER_NAME,
-	RESTError,
-} from "../../../../node_modules/@roseal/http-client/src/index.ts";
+import { HTTPClient, RESTError } from "../../../../node_modules/@roseal/http-client/src/index.ts";
 import {
 	type PlatformType,
 	ROSEAL_OVERRIDE_PLATFORM_TYPE_HEADER_NAME,
@@ -17,6 +12,10 @@ import { bypassCORSFetch } from "./utils/bypassCORSFetch.ts";
 
 export const BYPASS_CORS_ENVS = ["popup", "background"];
 export const HBA_ENVS = ["main", "inject"];
+
+export const ROBLOX_PLACE_ID_HEADER_NAME = "roblox-place-id";
+export const CHANNEL_TOKEN_HEADER_NAME = "roblox-channel-token";
+export const ROBLOX_BROWSER_ASSET_REQUEST_HEADER_NAME = "roblox-browser-asset-request";
 
 export let hbaClient: HBAClient | undefined;
 if (HBA_ENVS.includes(import.meta.env.ENV)) {
@@ -57,4 +56,4 @@ export const httpClient = new HTTPClient<PlatformType>({
 	isDev: import.meta.env.IS_DEV,
 });
 
-export { CLOUD_API_KEY_HEADER_NAME, OAUTH_AUTHORIZATION_HEADER_NAME, RESTError };
+export { RESTError };

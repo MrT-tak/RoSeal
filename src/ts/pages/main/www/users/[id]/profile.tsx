@@ -99,7 +99,7 @@ export default {
 
 		featureValueIs("robloxBadgesObtainedDates", true, () =>
 			watch(
-				".profile-platform-container #roblox-badges-container, .btr-profile-left .placeholder-robloxbadges, .btr-profile-left #roblox-badges-container",
+				".profile-platform-container #roblox-badges-container, .btr-profile-left .placeholder-robloxbadges, .btr-profile-left #roblox-badges-container, .btr-profile-robloxbadges",
 				(container) => {
 					renderAsContainer(<RobloxBadgesContainer userId={profileUserId} />, container);
 				},
@@ -270,10 +270,9 @@ export default {
 						? tryOpenCloudAuthRequest(
 								authenticatedUser.userId,
 								authenticatedUser.isUnder13 === false,
-								(authType, authCode) =>
+								(credentials) =>
 									getOpenCloudUser({
-										authType,
-										authCode,
+										credentials,
 										userId: profileUserId,
 									}).then((data) => data.locale),
 							).catch(() => undefined)

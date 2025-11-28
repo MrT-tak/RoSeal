@@ -1883,13 +1883,33 @@
 	},
 	"settings": {
 		"$context": "RoSeal Settings pages",
-		"storageUnavailable": {
-			"$context": "Storage unavailable thing",
-			"title": {
-				"$message": "Critical: Storage unavailable"
+		"alerts": {
+			"storageUnavailable": {
+				"$context": "Storage unavailable thing",
+				"title": {
+					"$message": "Critical: Storage unavailable"
+				},
+				"message": {
+					"$message": "A fatal error caused by your browser has disabled RoSeal's storage functionality. We are not sure why this happens and we recommend you to reinstall RoSeal if reloading the page does not work."
+				}
 			},
-			"message": {
-				"$message": "A fatal error caused by your browser has disabled RoSeal's storage functionality. We are not sure why this happens and we recommend you to reinstall RoSeal if reloading the page does not work."
+			"rosealPermissionRequired": {
+				"$context": "Roseal.live no permission",
+				"title": {
+					"$message": "Warning: RoSeal website permission denied"
+				},
+				"message": {
+					"$message": "You have denied RoSeal permission to the roseal.live domain. RoSeal requires this for basic functionality. Please allow it in your browser's extensions permissions page for RoSeal."
+				}
+			},
+			"otherReason": {
+				"$context": "some other stupid reason",
+				"title": {
+					"$message": "Critical: Features failed to load"
+				},
+				"message": {
+					"$message": "Due to an unknown reason, the initial RoSeal launch data call has failed. This is most definitely a bug."
+				}
 			}
 		},
 		"management": {
@@ -11567,7 +11587,7 @@
 						"$context": ""
 					},
 					"fetchDetails": {
-						"$message": "Failed to fetch asset details, please try again later.",
+						"$message": "Failed to fetch item details, please try again later.",
 						"$context": ""
 					},
 					"invalidAssetId": {
@@ -11575,15 +11595,15 @@
 						"$context": ""
 					},
 					"assetNotFound": {
-						"$message": "Could not find an asset with that ID.",
+						"$message": "Could not find an item with that ID.",
 						"$context": ""
 					},
 					"assetNotOwned": {
-						"$message": "You do not own this emote asset.",
+						"$message": "You do not own this item.",
 						"$context": ""
 					},
 					"assetNotEmote": {
-						"$message": "This asset is not an emote.",
+						"$message": "This item is not an emote or animation.",
 						"$context": ""
 					},
 					"loadConfigs": {
@@ -11613,7 +11633,7 @@
 					}
 				},
 				"emote": {
-					"$message": "Emote",
+					"$message": "Emote or Animation",
 					"$context": ""
 				},
 				"fieldOfViewDeg": {

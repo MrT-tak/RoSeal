@@ -1,5 +1,5 @@
 import { getRobloxUrl } from "src/ts/utils/baseUrls.ts" with { type: "macro" };
-import { httpClient } from "../main.ts";
+import { CHANNEL_TOKEN_HEADER_NAME, httpClient } from "../main.ts";
 import type { APPLICATION_BINARY_TYPES } from "src/ts/constants/misc.ts";
 
 export type GetLayersValuesParameters<T extends string> = {
@@ -110,8 +110,6 @@ export type GetClientVersionResponse = {
 	nextClientVersion?: string;
 };
 
-export const CHANNEL_TOKEN_HEADER_NAME = "roblox-channel-token";
-
 export function getLayersValues<T extends string>({
 	projectId = 1,
 	layers,
@@ -128,9 +126,12 @@ export function getLayersValues<T extends string>({
 					layers,
 				},
 			},
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			includeCsrf: false,
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 		.then((res) => res.body);
 }
@@ -148,8 +149,11 @@ export function getLayerValues<T extends string>({
 			search: {
 				parameters,
 			},
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 		.then((res) => res.body);
 }
@@ -160,8 +164,11 @@ export function getGUACPolicy<T extends Record<string, unknown>>({
 	return httpClient
 		.httpRequest<T>({
 			url: `${getRobloxUrl("apis")}/guac-v2/v1/bundles/${behaviorName}`,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 		.then((res) => res.body);
 }
@@ -175,8 +182,11 @@ export function multigetGUACPolicies<T extends string>({
 			search: {
 				names: behaviorNames.join(","),
 			},
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 		.then((res) => res.body);
 }
@@ -194,8 +204,11 @@ export function getFeatureAccess<T extends string>({
 				namespace,
 				extraParameters: extraParameters && btoa(JSON.stringify(extraParameters)),
 			},
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 		.then((res) => res.body);
 }
@@ -207,8 +220,11 @@ export function getFeaturesAccess<T extends string>({ featureNames }: GetFeature
 			search: {
 				featureNames,
 			},
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			errorHandling: "BEDEV2",
-			includeCredentials: true,
 		})
 		.then((res) => res.body);
 }
@@ -217,7 +233,10 @@ export function getClientSettings({ applicationName, bucketName }: GetClientSett
 	return httpClient
 		.httpRequest<ApplicationSettings>({
 			url: `${getRobloxUrl("clientsettings")}/v2/settings/application/${applicationName}${bucketName ? `/bucket/${bucketName}` : ""}`,
-			includeCredentials: true,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 		})
 		.then((res) => res.body);
 }
@@ -227,7 +246,10 @@ export function getUserEnrollmentChannel(request: GetUserEnrollmentChannelReques
 		.httpRequest<GetUserEnrollmentChannelResponse>({
 			url: getRobloxUrl("clientsettings", "/v2/user-channel"),
 			search: request,
-			includeCredentials: true,
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 		})
 		.then((res) => res.body);
 }
@@ -243,8 +265,11 @@ export function getClientVersion({
 			headers: {
 				[CHANNEL_TOKEN_HEADER_NAME]: channelToken,
 			},
+			credentials: {
+				type: "cookies",
+				value: true,
+			},
 			bypassCORS: channelToken !== undefined,
-			includeCredentials: true,
 		})
 		.then((res) => res.body);
 }
